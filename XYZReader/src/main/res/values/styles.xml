@@ -19,7 +19,6 @@
 
     <style name="MyToolbarStyle" parent="">
         <item name="android:minHeight">?actionBarSize</item>
-        <item name="android:background">?colorPrimary</item>
         <item name="android:theme">@style/MyToolbarTheme</item>
     </style>
 

@@ -25,14 +25,14 @@
     <color name="progress_bar_color">#0000FF</color>
     <color name="pressed_state_overlay_color">#222222</color>
 
-    <color name="theme_primary">#ffb300</color>
-    <color name="theme_primary_dark">#c68400</color>
-    <color name="theme_primary_accent">#ffe54c</color>
+    <color name="theme_primary">#FF9800</color>
+    <color name="theme_primary_dark">#F57C00</color>
+    <color name="theme_primary_accent">#FFAB40</color>
     <color name="theme_primary_text">#000000</color>
 
-    <color name="theme_secondary">#3f51b5</color>
-    <color name="theme_secondary_dark">#002984</color>
-    <color name="theme_secondary_accent">#757de8</color>
+    <color name="theme_secondary">#3F51B5</color>
+    <color name="theme_secondary_dark">#303F9F</color>
+    <color name="theme_secondary_accent">#536DFE</color>
     <color name="theme_secondary_text">#ffffff</color>
 
     <color name="text_white">#ffffff</color>

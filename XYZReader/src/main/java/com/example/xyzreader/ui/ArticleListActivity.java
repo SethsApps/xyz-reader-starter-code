@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -66,6 +69,13 @@ public class ArticleListActivity extends AppCompatActivity implements
         setSupportActionBar(mToolbar);
         ActionBar ab = getSupportActionBar();
         if (ab != null) ab.setTitle("");
+
+        if (!isOnline()) {
+            Snackbar.make(mRecyclerView, "Unable to load articles - no internet.", Snackbar.LENGTH_LONG)
+                    .show();
+
+            return;
+        }
 
         getLoaderManager().initLoader(0, null, this);
 
@@ -131,11 +141,23 @@ public class ArticleListActivity extends AppCompatActivity implements
         StaggeredGridLayoutManager sglm =
                 new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(sglm);
+
+        Snackbar.make(mRecyclerView, "Finished loading articles.", Snackbar.LENGTH_LONG).show();
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mRecyclerView.setAdapter(null);
+    }
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {

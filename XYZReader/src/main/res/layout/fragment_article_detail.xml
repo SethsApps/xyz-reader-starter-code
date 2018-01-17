@@ -81,13 +81,10 @@
         android:focusable="true"
         android:contentDescription="@string/action_share"
         android:src="@android:drawable/ic_menu_share"
-        app:backgroundTint="@color/theme_secondary_dark"
         android:tint="#ffffff"
         style="@style/floating_action_button"
         app:useCompatPadding="true"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|right|end"
-        app:elevation="@dimen/fab_elevation"
-        app:pressedTranslationZ="@dimen/fab_press_translation_z" />
+        app:layout_anchorGravity="bottom|right|end" />
 
 </android.support.design.widget.CoordinatorLayout>
